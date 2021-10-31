@@ -27,7 +27,9 @@
 	<distributionManagement>
     <snapshotRepository>
       <uniqueVersion>true</uniqueVersion>
-      <id>nexus</id>
+      <id>deploymentRepo</id>
+<username>admin</username>
+<password>admin123</password>
       <name>nexus Snapshots</name>
       <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
       <layout>legacy</layout>
