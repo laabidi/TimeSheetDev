@@ -30,8 +30,7 @@
       <id>deploymentRepo</id>
 <username>admin</username>
 <password>admin123</password>
-      <name>nexus Snapshots</name>
-      <url>http://localhost:8081/repository/maven-snapshots/</url>
+ <url>http://localhost:8081/repository/maven-snapshots</url>
       <layout>legacy</layout>
     </snapshotRepository>
   </distributionManagement>
