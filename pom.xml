@@ -26,13 +26,13 @@
 	
 	<distributionManagement>
     <snapshotRepository>
-      
-      <id>deploymentRepo</id>
-<username>admin</username>
-<password>admin123</password>
- <url>http://localhost:8081/repository/maven-snapshots</url>
-     
+        <id>Snapshots</id>
+        <url>http://maven:8081/nexus/content/repositories/Snapshots</url>
     </snapshotRepository>
+    <repository>
+        <id>Releases</id>
+        <url>http://maven:8081/nexus/content/repositories/Releases</url>
+    </repository>
   </distributionManagement>
 
 	<dependencies>
