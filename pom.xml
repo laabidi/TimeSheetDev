@@ -26,11 +26,11 @@
 	
 	<distributionManagement>
     <snapshotRepository>
-        <id>Snapshots</id>
+        <id>deploymentRepo</id>
         <url>http://maven:8081/nexus/content/repositories/Snapshots</url>
     </snapshotRepository>
     <repository>
-        <id>Releases</id>
+        <id>deploymentRepo</id>
         <url>http://maven:8081/nexus/content/repositories/Releases</url>
     </repository>
   </distributionManagement>
