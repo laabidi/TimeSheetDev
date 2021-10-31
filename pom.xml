@@ -24,16 +24,7 @@
 	
 	
 	
-	<distributionManagement>
-    <snapshotRepository>
-        <id>deploymentRepo</id>
-        <url>http://maven:8081/nexus/content/repositories/Snapshots</url>
-    </snapshotRepository>
-    <repository>
-        <id>deploymentRepo</id>
-        <url>http://maven:8081/nexus/content/repositories/Releases</url>
-    </repository>
-  </distributionManagement>
+	
 
 	<dependencies>
 		<dependency>
