@@ -29,8 +29,8 @@ stages{
           
         }
          post {
-           sucess {
-           emailext body: 'build sucess' , subject: 'Jenkins' , to: 'benmohamedsaoussen@gmail.com'
+           success {
+           emailext body: 'build success' , subject: 'Jenkins' , to: 'benmohamedsaoussen@gmail.com'
            }
             failure {
            emailext body: 'build failure' , subject: 'Jenkins' , to: 'benmohamedsaoussen@gmail.com'
