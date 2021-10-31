@@ -27,10 +27,9 @@
 	<distributionManagement>
     
     <snapshotRepository>
-        <id>deploymentRepo</id>
-	    <username>admin</username>
-<password>admin123</password>
-        <url>http://localhost:8081/repository/maven-snapshots/</url>
+       <id>snapshots</id>
+	    
+        <url>http://localhost:8081/repository/maven-snapshots</url>
     </snapshotRepository>
 </distributionManagement>
 
