@@ -4,7 +4,7 @@ stages{
        stage('Checkout GIT'){
        steps{
              echo 'Pulling...';
-             git branch: 'SaoussenBranch',
+             git branch: 'master',
              url : 'https://github.com/laabidi/TimeSheetDev.git';
              }
          }
