@@ -10,11 +10,16 @@
 	</parent>
 	<groupId>tn.esprit.spring</groupId>
 	<artifactId>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</artifactId>
-	<version>1.0</version>
-	<packaging>war</packaging>
+	<version>1.5</version>
+	<packaging>jar</packaging>
 	<name>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</name>
 	<description>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</description>
-
+<distributionManagement>
+   <snapshotRepository>
+      <id>maven-central</id>
+      <url>http://localhost:8081/maven-central/</url>
+   </snapshotRepository>
+</distributionManagement>
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
@@ -53,6 +58,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+      </plugin>
+      
 		</plugins>
 	</build>
 

@@ -155,6 +155,31 @@ public class Contrat implements Serializable {
 
 
 
+
+
+
+
+
+
+	public boolean isPresent() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
 	
 
 

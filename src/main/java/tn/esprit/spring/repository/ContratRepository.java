@@ -2,7 +2,6 @@ package tn.esprit.spring.repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.IntPredicate;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -20,5 +19,9 @@ public interface ContratRepository extends CrudRepository<Contrat, Integer>{
 
 
 
-	List <Contrat> findContratByReference(int reference);
+	List<Contrat> findContratByReference(int reference);
+
+
+
+	Optional<Contrat> findByReference(int i);
 } 

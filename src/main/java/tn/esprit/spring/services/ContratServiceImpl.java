@@ -1,8 +1,8 @@
 package tn.esprit.spring.services;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +16,33 @@ import tn.esprit.spring.repository.ContratRepository;
 
 @Service
 public class ContratServiceImpl implements IContratService {
-	private static final Logger L =  LogManager.getLogger(ContratServiceImpl.class);
+	private static final Logger logger =  LogManager.getLogger(ContratServiceImpl.class);
 
 	@Autowired
-	ContratRepository ContR;
+	ContratRepository contRepository;
 	
 	
 
 	@Override
 	public Contrat save(Contrat contract) {
-		// TODO Auto-generated method stub
-		return ContR.save(contract);
+		
+		return contRepository.save(contract);
 	}
 
 
 
 	@Override
 	public List<Contrat> findContractByTypecontract(String typecontract) {
-		// TODO Auto-generated method stub
-		return (List<Contrat>)ContR.findContractByTypecontrat(typecontract);
+		
+		return contRepository.findContractByTypecontrat(typecontract);
 	}
 
 
 
 	@Override
 	public String addContrat(Contrat cont) {
-		// TODO Auto-generated method stub
-		ContR.save(cont);
+		
+		contRepository.save(cont);
 		return"done";
 	}
 
@@ -50,10 +50,10 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public List<Contrat> retrieveAllContrat() {
-		// TODO Auto-generated method stub
-		List<Contrat> contracts = (List<Contrat>) ContR.findAll();
+		
+		List<Contrat> contracts = (List<Contrat>) contRepository.findAll();
 		for (Contrat contract : contracts){
-		L.info("contract +++: " + contract );}
+		logger.log(Level.INFO, () ->"contracts:" +contract);}
 		return contracts;
 	}
 
@@ -61,27 +61,27 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public Long numberOfContrat() {
-		// TODO Auto-generated method stub
-		return ContR.count();
+		
+		return contRepository.count();
 	}
 
 
 
 	@Override
 	public void deleteContrat(int reference) {
-		// TODO Auto-generated method stub
-		List<Contrat> subscription = ContR.findContratByReference(reference);
+		
+		
 	    
 	    
-	        ContR.deleteById(reference);	
+		contRepository.deleteById(reference);	
 	}
 
 
 
 	@Override
 	public List<Contrat> findContratByReference(int reference) {
-		// TODO Auto-generated method stub
-		return (List<Contrat>)ContR.findContratByReference(reference);
+		
+		return contRepository.findContratByReference(reference);
 	}
 	}
 

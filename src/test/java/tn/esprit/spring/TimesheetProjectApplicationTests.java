@@ -9,6 +9,8 @@ class TimesheetProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
+		throw new UnsupportedOperationException();
+    }
+	
 
 }

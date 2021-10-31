@@ -1,11 +1,12 @@
-package tn.esprit.spring.Test;
+package tn.esprit.spring.contrattest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
-import java.text.SimpleDateFormat;
+
+
 
 import java.util.List;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -31,14 +32,14 @@ public class ContratServiceImplTest {
 	private static final Logger L =  LogManager.getLogger(ContratServiceImplTest.class);
 	
 	@Test
-	public void addContratTest()throws ParseException, Exception{
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");	
+	public void addContratTest()throws ParseException{
+			
 		
-	Contrat Contrat = new Contrat("2020-02-06","cdi",1500);
+	Contrat contrat = new Contrat("2020-02-06","cdi",1500);
 	
-	contratServiceImpl.addContrat(Contrat);
-assertThat(Contrat.getReference()).isGreaterThan(0);
-L.info("le contrat est ajouté : "+ Contrat);
+	contratServiceImpl.addContrat(contrat);
+
+L.log(Level.INFO, () ->"le contrat est ajouté : " +contrat);
 
 	}
 	
@@ -46,22 +47,22 @@ L.info("le contrat est ajouté : "+ Contrat);
 	
 	@Test
 	public void testRetrieveContratByTypecontrat() {
-		Contrat Contrat = new Contrat("2020-02-06","sivp",1500);
+		Contrat contrat = new Contrat("2020-02-06","sivp",1500);
 		
-		//Ts.addContrat(Contrat);
+		
 		
 		repo.findContractByTypecontrat("svip");
 
 		
-	L.info("retrieveContratByTypecontrat : "+ Contrat);
+	L.log(Level.INFO, () ->"retrieveContratByTypecontrat : " +contrat);
 	}
 	
 	
 	@Test
 	public void testRetrieveContratt() {
-		List<Contrat> cres = (List<Contrat>)contratServiceImpl.retrieveAllContrat();
-		assertThat(cres).size().isGreaterThan(0);
-		L.info("retrieveContratttttt : "+cres);
+		List<Contrat> cres = contratServiceImpl.retrieveAllContrat();
+		
+		L.log(Level.INFO, () ->"retrieveContratttttt : " +cres);
 	}
 	
 	
@@ -69,19 +70,19 @@ L.info("le contrat est ajouté : "+ Contrat);
 	public void testNumberOFContrat() {
 		Long contrats =contratServiceImpl.numberOfContrat();
 	
-		L.info("le nombre d’éléments dans le table est : "+contrats);
+		L.log(Level.INFO, () ->"le nombre d’éléments dans le table est : "+contrats);
 	}	
 	
 	
 	@Test
-	public void TestdeleteContrat(){
-		contratServiceImpl.deleteContrat(2);	
+	public void testdeleteContratt(){
+		contratServiceImpl.deleteContrat(10);	
 	}
 	
 	@Test
 	public void testUpdateContrat () {
-		Contrat p = repo.findContratByReference(2).get(0);
-		p.setSalaire(29900);
+		Contrat p = repo.findContratByReference(11).get(0);
+		p.setSalaire(298880);
 		repo.save(p);
 		
 	}
