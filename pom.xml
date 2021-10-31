@@ -21,7 +21,7 @@
 	</properties>
 <distributionManagement>
 	<repository>
-   
+    <name>deploymentRepo</name>
       <id>deploymentRepo</id>
       <url>http://localhost:8081/#browse/browse:maven-snapshots</url>
 		</repository>
