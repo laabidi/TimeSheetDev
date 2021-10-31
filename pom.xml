@@ -22,7 +22,7 @@
 <distributionManagement>
    <snapshotRepository>
       <id>maven-snapshots</id>
-      <url>http://localhost:8081/maven-snapshots/</url>
+      <url>http://localhost:8081/#browse/browse:maven-snapshots</url>
    </snapshotRepository>
 </distributionManagement>
 	<dependencies>
