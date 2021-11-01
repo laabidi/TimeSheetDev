@@ -23,7 +23,7 @@ stages{
           
           stage("Nexus"){
           steps{
-          bat """mvn deploy"""
+          bat """mvn deploy -DaltDeploymentRepository=deploymentRepo::default::file:/http://localhost:8081/repository/maven-releases/"""
           }
           }
           
