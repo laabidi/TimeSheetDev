@@ -30,10 +30,10 @@ stages{
         }
     post{
 		success{
-			emailext body: 'Build success', subject: 'Jenkins', to:'laabidi.mohamed120@gmail.com'
+			emailext body: 'Build success', subject: 'Jenkins', to:'mohamed.laabidi@esprit.tn'
 		}
 		failure{
-			emailext body: 'Build failure', subject: 'Jenkins', to:'laabidi.mohamed120@gmail.com'
+			emailext body: 'Build failure', subject: 'Jenkins', to:'mohamed.laabidi@esprit.tn'
 		}
 
   }
