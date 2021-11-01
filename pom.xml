@@ -27,11 +27,11 @@
         <id>deploymentRepo</id>
 	    <username>admin</username>
 <password>admin123</password>
-        <url>http://localhost:8081/repository/maven-releases/</url>
+        <url>http://localhost:8081/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
         <id>deploymentRepo</id>
-        <url>http://localhost:8081/repository/maven-snapshots/</url>
+        <url>http://localhost:8081/repository/maven-snapshots</url>
     </snapshotRepository>
 </distributionManagement>
 	
