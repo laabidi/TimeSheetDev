@@ -7,10 +7,11 @@ import tn.esprit.spring.entities.Entreprise;
 
 public interface IEntrepriseService {
 	
-	public int addEntreprise(Entreprise e);
-	public void deleteEntreprise(long id);
-	public Entreprise getEntrepriseById(int eId);
+	public Entreprise addEntreprise(Entreprise e);
 	public List<Entreprise> retrieveAllEntreprises();
+	public void deleteEntreprise(int id);
 	public Entreprise updateEntreprise(Entreprise e);
-	public Optional<Entreprise> retrieveEntreprise(int id);
+	public Optional<Entreprise> retrieveEntreprise(String id);
+	public Entreprise getEntrepriseById(int id);
+	public void deleteEntrepriseById(int id);
 }

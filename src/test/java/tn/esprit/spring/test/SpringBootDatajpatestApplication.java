@@ -6,5 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class SpringBootDatajpatestApplication {
 	@Test
 	void contextLoads() {
+		throw new UnsupportedOperationException();
+	
 	}
 }
