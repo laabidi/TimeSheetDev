@@ -28,17 +28,13 @@ stages{
           }
           
         }
-      
-       environment {
-        EMAIL_TO = 'benmohamedsaoussen@gmail.com'
+      post {
+    always {
+       mail to: 'benmohamedsaoussen@gmail.com',
+          subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+          body: "${env.BUILD_URL} has result ${currentBuild.result}"
     }
-         post {
-           success {
-           emailext body: 'build success' , subject: 'Jenkins' 
-           }
-            failure {
-           emailext body: 'build failure' , subject: 'Jenkins' 
-           }
-           }
+  }
+      
        }
            
