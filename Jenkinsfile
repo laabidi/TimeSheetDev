@@ -4,8 +4,8 @@ stages{
        stage('Checkout GIT'){
        steps{
              echo 'Pulling...';
-             git branch: 'main',
-             url : 'https://github.com/laabidi/TimeSheetDev.git';
+             git branch: 'master',
+             url : 'https://github.com/laabidi/TimeSheetDev';
              }
          }
 
@@ -28,12 +28,14 @@ stages{
           }
 
         }
-      post {
-    always {
-       mail to: 'laabidi.mohamed120@gmail.com',
-          subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-          body: "${env.BUILD_URL} has result ${currentBuild.result}"
-    }
+    post{
+		success{
+			emailext body: 'Build success', subject: 'Jenkins', to:'laabidi.mohamed120@gmail.com'
+		}
+		failure{
+			emailext body: 'Build failure', subject: 'Jenkins', to:'laabidi.mohamed120@gmail.com'
+		}
+
   }
 
        }
