@@ -2,6 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	distributionManagement>
+    <repository>
+        <id>deploymentRepo</id>
+	    <username>admin</username>
+<password>admin123</password>
+        <url>http://localhost:8081/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+        <id>deploymentRepo</id>
+        <url>http://localhost:8081/repository/maven-snapshots</url>
+    </snapshotRepository>
+</distributionManagement>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -19,21 +31,6 @@
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
-	
-	
-	
-	<distributionManagement>
-    <repository>
-        <id>deploymentRepo</id>
-	    <username>admin</username>
-<password>admin123</password>
-        <url>http://localhost:8081/repository/maven-releases</url>
-    </repository>
-    <snapshotRepository>
-        <id>deploymentRepo</id>
-        <url>http://localhost:8081/repository/maven-snapshots</url>
-    </snapshotRepository>
-</distributionManagement>
 	
 	
 
