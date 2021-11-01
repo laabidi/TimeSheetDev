@@ -28,6 +28,8 @@ stages{
           }
           
         }
+       environment {
+        EMAIL_TO = 'benmohamedsaoussen@gmail.com'
          post {
            success {
            emailext body: 'build success' , subject: 'Jenkins' , to: 'benmohamedsaoussen@gmail.com'
@@ -36,4 +38,5 @@ stages{
            emailext body: 'build failure' , subject: 'Jenkins' , to: 'benmohamedsaoussen@gmail.com'
            }
            }
+       }
            }
