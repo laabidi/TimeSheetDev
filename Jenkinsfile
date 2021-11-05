@@ -5,7 +5,7 @@ pipeline {
     dockerImage = 'devopsimage'
   }
      agent 
-        { Dockerfile true }
+        { dockerfile true }
        
 stages{
        stage('Checkout GIT'){
