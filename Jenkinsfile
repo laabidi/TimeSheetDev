@@ -1,4 +1,10 @@
 pipeline {
+  environment
+{
+registry = "laabidi91/webapp"
+registryCredential= 'dockerHub'
+dockerImage = 'webapp'
+}
 agent any
 stages{
        stage('Checkout GIT'){
@@ -35,14 +41,8 @@ stages{
 		failure{
 			emailext body: 'Build failure', subject: 'Jenkins', to:'mohamed.laabidi@esprit.tn'
 		}
-environment
-{
-registry = "laabidi91/webapp"
-registryCredential= 'dockerHub'
-dockerImage = 'webapp'
-}
-agent any
-stages {
+
+
 stage('Building our image') {
 steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
 }
@@ -54,4 +54,4 @@ steps { bat "docker rmi $registry:$BUILD_NUMBER" }
 }
 }
 
-  }
+}
