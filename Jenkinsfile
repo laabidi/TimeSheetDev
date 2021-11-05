@@ -44,7 +44,7 @@ dockerImage = ''
 agent any
 stages {
 stage('Cloning our Git') {
-steps { git 'https://github.com/laabidi/TimeSheetDev.git’ }
+steps { git 'https://github.com/laabidi/TimeSheetDev.git' }
 }
 stage('Building our image') {
 steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
