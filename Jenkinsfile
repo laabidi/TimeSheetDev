@@ -35,7 +35,8 @@ stages{
      stage('Build Docker Image') {
             steps {
                 script {
-                  bat """docker build -t saoussenbenmohamed/devopsimage ."""
+                   bat """docker build -f Dockerfile -t saoussenbenmohamed/devopsimage ."""
+                 // bat """docker build -t saoussenbenmohamed/devopsimage ."""
                 }
             }
         }
