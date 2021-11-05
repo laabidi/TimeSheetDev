@@ -39,7 +39,7 @@ environment
 {
 registry = "laabidi91/webapp"
 registryCredential= 'dockerHub'
-dockerImage = ''
+dockerImage = 'webapp'
 }
 agent any
 
@@ -54,4 +54,4 @@ steps { bat "docker rmi $registry:$BUILD_NUMBER" }
 }
 }
 
-  }}}
+  }}}}
