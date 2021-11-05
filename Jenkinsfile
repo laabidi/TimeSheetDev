@@ -32,15 +32,11 @@ stages{
           }
           }
       
-      
+      stage('Building our image') {
+steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
+}
     
-       stage('Build Docker Image') {
-            steps {
-                script {
-                  bat """docker build -t saoussenbenmohamed/devopsimage ."""
-                }
-            }
-        }
+       
        
           
         }
