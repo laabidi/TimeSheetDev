@@ -36,4 +36,4 @@ stages{
 			emailext body: 'Build failure', subject: 'Jenkins', to:'mohamed.laabidi@esprit.tn'
 		}
 
-  }
+  }}
