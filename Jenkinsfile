@@ -4,7 +4,9 @@ pipeline {
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
   }
-      agent any 
+     agent {
+        docker { image 'node:alpine' }
+    }   
 stages{
        stage('Checkout GIT'){
        steps{
@@ -32,10 +34,8 @@ stages{
           }
           }
      
-    agent {
-        docker { image 'node:alpine' }
-    }
-       stages{
+   
+       
    
 stage('Building our image') {
 steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
@@ -45,7 +45,7 @@ steps { script { docker.withRegistry( '', registryCredential) { dockerImage.push
 }
 stage('Cleaning up') {
 steps { bat "docker rmi $registry:$BUILD_NUMBER" }
-}}
+}
     
        
        
