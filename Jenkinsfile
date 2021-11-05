@@ -37,7 +37,7 @@ stages{
        stage('Build Docker Image') {
             steps {
                 script {
-                  sh """docker build -t saoussenbenmohamed/devopsimage ."""
+                  bat """docker build -t saoussenbenmohamed/devopsimage ."""
                 }
             }
         }
