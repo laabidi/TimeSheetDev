@@ -4,7 +4,9 @@ pipeline {
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
   }
-       agent {dockerfile true}
+       agent {
+        docker { image 'node:alpine' }
+    }
 stages{
        stage('Checkout GIT'){
        steps{
