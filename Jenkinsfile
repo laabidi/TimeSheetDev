@@ -33,8 +33,14 @@ stages{
           }
       
       
-       
-       
+    
+       stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'saoussenbenmohamed/devopsimage .'
+                }
+            }
+        }
        
           
         }
