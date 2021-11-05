@@ -4,9 +4,9 @@ pipeline {
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
   }
-     agent {
-        docker { image 'openjdk:8-jdk-alpine' }
-    }   
+     agent 
+        { Dockerfile true }
+       
 stages{
        stage('Checkout GIT'){
        steps{
