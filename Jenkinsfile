@@ -54,4 +54,4 @@ steps { bat "docker rmi $registry:$BUILD_NUMBER" }
 }
 }
 
-  }}
+  }
