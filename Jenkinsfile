@@ -3,6 +3,7 @@ pipeline {
     registry = "saoussenbenmohamed/devopsimage"
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
+              HOME="."
   }
      agent 
         { dockerfile true }
