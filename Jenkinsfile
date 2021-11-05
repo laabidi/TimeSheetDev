@@ -42,7 +42,7 @@ registryCredential= 'dockerHub'
 dockerImage = 'webapp'
 }
 agent any
-
+stages {
 stage('Building our image') {
 steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
 }
@@ -54,4 +54,4 @@ steps { bat "docker rmi $registry:$BUILD_NUMBER" }
 }
 }
 
-  }
+  }}
