@@ -5,7 +5,7 @@ pipeline {
     dockerImage = 'devopsimage'
               
   }
-     agent any
+    agent {dockerfile true}
        
        
 stages{
@@ -36,9 +36,7 @@ stages{
           }
      
    
-       
-       stage {
-              agent {dockerfile true}}
+      
 stage('Building our image') {
 steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
 }
