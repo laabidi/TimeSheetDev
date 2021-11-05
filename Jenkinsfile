@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
   }
-       agent none {Dockerfile true}
+       agent label {Dockerfile true}
 stages{
        stage('Checkout GIT'){
        steps{
