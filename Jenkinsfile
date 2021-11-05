@@ -1,9 +1,9 @@
 pipeline {
   environment
 {
-registry = "laabidi91/webapp"
+registry = "laabidi91/laabidi91"
 registryCredential= 'dockerHub'
-dockerImage = 'webapp'
+dockerImage = ''
 }
 agent any
 stages{
