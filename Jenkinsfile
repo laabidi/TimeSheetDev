@@ -5,7 +5,7 @@ pipeline {
     dockerImage = 'devopsimage'
   }
      agent {
-        docker { image 'node:alpine' }
+        docker { image 'openjdk:8-jdk-alpine' }
     }   
 stages{
        stage('Checkout GIT'){
