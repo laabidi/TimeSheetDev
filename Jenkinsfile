@@ -32,11 +32,7 @@ stages{
           }
           }
       
-       stage {("Pull Image")
-  // Now let's pull it, just to test that a pull from Nexus works correctly
-  docker.withRegistry('https://nexus.doyouevenco.de', 'nexus-admin') {
-     docker.image("jenkins-docker-maven-example:latest").pull()
-  }}
+      
        
        
        
