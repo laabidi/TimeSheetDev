@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'dockerHub'
     dockerImage = 'devopsimage'
   }
-       agent any
+         agent {dockerfile true}
 stages{
        stage('Checkout GIT'){
        steps{
@@ -31,7 +31,7 @@ stages{
           bat """mvn deploy -DaltDeploymentRepository=deploymentRepo::default::file:/"""
           }
           }
-       agent {dockerfile true}
+     
       
      stage('Build Docker Image') {
             steps {
