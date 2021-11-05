@@ -5,9 +5,6 @@ package tn.esprit.spring.services;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,8 +18,7 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService{
 
-	@PersistenceContext
-	EntityManager em;
+	
 	@Autowired
 	EntrepriseRepository erep;
 	
@@ -80,7 +76,7 @@ return entreprise;
 
 	@Override
 	public void deleteEntrepriseById(int id) {
-		{
+		
 			Optional<Entreprise> e = erep.findById(1L);
 
 			Entreprise entreprise = new Entreprise();
@@ -91,7 +87,7 @@ return entreprise;
 			erep.delete(entreprise);
 		}
 	
-	}
+	
 	
 }
 	

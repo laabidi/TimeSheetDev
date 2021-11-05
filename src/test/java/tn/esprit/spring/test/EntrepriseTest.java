@@ -1,10 +1,5 @@
 package tn.esprit.spring.test;
 
-
-
-
-
-
 import java.util.List;
 
 import org.apache.logging.log4j.Level;
@@ -28,7 +23,7 @@ import tn.esprit.spring.services.EntrepriseServiceImpl;
 @SpringBootTest
 public class EntrepriseTest {
 	
-	private static final Logger L = LogManager.getLogger(EntrepriseServiceImpl.class);
+	private static final Logger L = LogManager.getLogger();
 	
 	@Autowired
 	EntrepriseServiceImpl entrepriseService;
@@ -41,12 +36,12 @@ public class EntrepriseTest {
 			
 		  Entreprise e = new Entreprise("Teslaaa","TES");
 		  entrepriseService.addEntreprise(e);
-		L.log(Level.INFO, () ->"retrieve Entreprise : " +e);
+		L.log(Level.INFO, () ->"ajouter Entreprise : " +e);
 		
 
 		}
 	  @Test
-		public void testRetrieveContratt() {
+		public void testRetrieveEntreprise() {
 			List<Entreprise> e = entrepriseService.retrieveAllEntreprises();
 			
 			L.log(Level.INFO, () ->"retrieve entreprise : " +e);
