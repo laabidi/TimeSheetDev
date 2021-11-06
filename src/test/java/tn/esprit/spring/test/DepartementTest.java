@@ -1,50 +1,64 @@
 package tn.esprit.spring.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertNotNull;
+import java.util.List;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.expression.ParseException;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.repository.DepartementRepository;
+import tn.esprit.spring.services.DepartementServiceImpl;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = Replace.NONE)
+@SpringBootTest
+
 public class DepartementTest {
+	
+	private static final Logger L = LogManager.getLogger();
 	
 	
 	  @Autowired
 	  DepartementRepository drep;
+	  @Autowired
+	  DepartementServiceImpl depService ;
 	  
 	  @Test
-	  public void testAddDepartement() {
+	  public void testAddDepartement()throws ParseException {
 
 	 Departement d = new Departement("BLOC A");
 	  
-	 Departement savedDepartement = drep.save(d);
-	  assertNotNull(savedDepartement);
+	 depService.addDepartement(d);
+		L.log(Level.INFO, () ->"Ajouter departement : " +d);
 	  }
+	  
+	  @Test
+		public void testRetrieveDepartement() {
+			List<Departement> d = depService.retrieveAllDepartements();
+			
+			L.log(Level.INFO, () ->"retrieve departement : " +d);
+		}
 	
 	  
 	  @Test
 	  public void testUpdate () {
-		  Departement d = drep.findById(1);
-	  	d.setName("BLOC A");
-	  	drep.save(d);
+		  Departement d=depService.getDepartementById(1);
+			d.setName("khalil"+" ");
+			Departement dm= depService.updateDepartement(d);
+			Assert.assertEquals(d.getName(), dm.getName());
 	  	
 	  }
 	  
 	  @Test
 	  public void testDelete () {
-	  	drep.deleteById(1);
-	  	assertThat(drep.existsById(1)).isFalse();
+    depService.deleteDepartementById(1);
 	  }
 	 
 	  
