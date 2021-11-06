@@ -66,7 +66,7 @@ steps { script {
 stage('Cleaning up') {
 steps { bat "docker rmi saoussenbenmohamed/devopsimage" }
 }
-  }    
+     
        
        
           
