@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Employe implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+   //identifiant
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
