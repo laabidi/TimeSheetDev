@@ -5,7 +5,7 @@ pipeline {
     dockerImage = 'devopsimage'
               
   }
-    agent any
+       agent {dockerfile true}
        
        
 stages{
