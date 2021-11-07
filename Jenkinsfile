@@ -6,7 +6,7 @@ registryCredential= 'dockerHub'
 dockerImage = ''
 }
        
-       agent any
+       agent {dokerfile true}
        
        
 stages{
