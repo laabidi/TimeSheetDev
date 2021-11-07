@@ -13,8 +13,8 @@ stages{
        stage('Checkout GIT'){
        steps{
              echo 'Pulling...';
-             git branch: 'master',
-             url : 'https://github.com/laabidi/TimeSheetDev.git';
+             git branch: 'SaoussenBranch',
+            url : 'https://github.com/laabidi/TimeSheetDev';
              }
          }
          
@@ -37,38 +37,29 @@ stages{
           }
      
    
-     stage('Build Docker Image') {
-            steps {
-                script {
-                   bat """docker build -f C:\\Users\\Saoussen\\Documents\\workspace-sts-3.8.4.RELEASE\\TimesheetProject\\Dockerfile -t saoussenbenmohamed/devopsimage ."""
-                 // bat """docker build -t saoussenbenmohamed/devopsimage ."""
-                }
-            }
-        }
-stage('Deploy our image') {
-steps { script { 
-    bat """docker login"""
-    
-    
-    
-} } }
+     stage('Building our image') {
+    steps {
+       script {
+          dockerImage= docker.build registry + ":$BUILD_NUMBER" 
+       }
+    }
+  }
 
+  stage('Deploy our image') {
+    steps {
+       script {
+         docker.withRegistry( '', registryCredential) {
+            dockerImage.push() 
+         }
+       } 
+    }
+  }
 
-stage('push our image') {
-steps { script { 
-    bat """docker push saoussenbenmohamed/devopsimage"""
-    
-    
-    
-} } }
-
-
-stage('Cleaning up') {
-steps { bat "docker rmi saoussenbenmohamed/devopsimage" }
-}
-     
-       
-
+  stage('Cleaning up') {
+    steps { 
+      bat "docker rmi $registry:$BUILD_NUMBER" 
+    }
+  }
 
     
        
