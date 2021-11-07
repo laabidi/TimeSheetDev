@@ -1,6 +1,6 @@
 package tn.esprit.spring.missiontest;
 
-import java.text.ParseException;
+
 import java.util.List;
 
 import org.apache.logging.log4j.Level;
@@ -23,9 +23,9 @@ public class MissionServiceImplementTest {
 MissionServiceImpl missionServiceImpl;
 @Autowired 
 MissionRepository missionRepository; 
-private static final Logger L =  LogManager.getLogger(MissionServiceImpl.class);
+private static final Logger L =  LogManager.getLogger(MissionServiceImplementTest.class);
 @Test
-public void addMissionTest()throws ParseException{
+public void addMissionTest() {
 		
 	
 Mission mission = new Mission("developement","backEnd");
