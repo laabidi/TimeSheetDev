@@ -6,7 +6,7 @@ registryCredential= 'dockerHub'
 dockerImage = ''
 }
        
-       agent {dokerfile true}
+       agent any
        
        
 stages{
@@ -40,7 +40,7 @@ stages{
       stage('Building our image') {
     steps {
        script {
-          dockerImage= docker.build  registry + ":$BUILD_NUMBER" -f Dokerfile
+          dockerImage= docker.build -f Dokerfile -t registry + ":$BUILD_NUMBER" 
        }
     }
   }
