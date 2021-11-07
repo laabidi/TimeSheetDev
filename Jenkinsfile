@@ -20,7 +20,7 @@ stages{
          
          stage("Test,Build"){
           steps{
-          bat """mvn clean package"""
+          bat """mvn clean package -Dmaven.test.failure.ignore=true"""
           }
           }
           
@@ -32,7 +32,7 @@ stages{
           
           stage("Nexus"){
           steps{
-          bat """mvn deploy -DaltDeploymentRepository=deploymentRepo::default::file:/"""
+          bat """mvn clean package -Dmaven.test.failure.ignore=true deploy -DaltDeploymentRepository=deploymentRepo::default::file:/"""
           }
           }
      
