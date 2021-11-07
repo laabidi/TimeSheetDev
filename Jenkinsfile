@@ -40,7 +40,7 @@ stages{
       stage('Building our image') {
     steps {
        script {
-          dockerImage= docker.build -f Dokerfile registry + ":$BUILD_NUMBER" 
+          dockerImage= docker.build -f dokerfile registry + ":$BUILD_NUMBER" 
        }
     }
   }
