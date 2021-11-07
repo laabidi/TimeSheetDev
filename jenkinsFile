@@ -1,4 +1,11 @@
 pipeline{
+
+			environment{
+		registry = 'cyrine96/devops'
+		registryCredential= 'dockerHub'
+		dockerImage = ''
+	
+
 		agent any 
 	stages{
 		stage ('Checkout GIT'){
@@ -8,18 +15,6 @@ pipeline{
 					url : 'https://github.com/laabidi/TimeSheetDev';
 			}
 		}
-
-		stage ("Verification du  version Maven"){
-			steps{
-				bat """mvn -version"""
-			}
-		}
-
-		 stage ("Suppression du dossier tareget + Copie du livrable dans le Repository local"){
-		 	steps{
-		 		bat """mvn clean install"""
-		 	}
-		 }
 
 		 stage ("Lancement des Tests Unitaires"){
 		 	steps{
@@ -35,17 +30,50 @@ pipeline{
 
 		 stage ("Analyse avec Sonar"){
 		 	steps{
-		 		bat """mvn sonar:sonar"""
+		 		bat """mvn clean package -Dmaven.test.skip=true sonar:sonar -Dsonar.host.url=http://localhost:9007/"""
 		 	}
 		 }
 
-		// /*stage ("Deploiement dans http://localhost:8081/repository/maven-releases/ "){
-		// 	steps{
-		// 		bat """mvn deploy"""
-		// 	}
-		// }*/
-		//
-		//
+			stage ("Deploiement dans http://localhost:8081/repository/maven-releases/ "){
+			steps{
+				bat """nexus: 
+
+<groupId>tn.esprit.spring</groupId>
+	<artifactId>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</name>
+
+commande: 
+
+mvn clean deploy:deploy-file -DgroupId= tn.esprit.spring-DartifactId= Timesheet-spring-boot-core-data-jpa-mvc-REST-1 -Dversion= 0.0.1-SNAPSHOT -DgeneratePom=true-Dpackaging= war -DrepositoryId=deploymentRepo-Durl=http://localhost:8081/repository/maven-releases/-Dfile=target/ Timesheet-spring-boot-core-data-jpa-mvc-REST-1"""
+			}
+		}
+		
+		stage('Building our image'){
+			steps{ 
+				script{ 
+					dockerImage= docker.build registry + ":$BUILD_NUMBER" 
+				}
+			}
+		}
+
+		stage('Deploy our image'){
+			steps{ 
+				script{
+					docker.withRegistry( '', registryCredential){
+						dockerImage.push()
+					} 
+				} 
+			}
+		}
+
+		stage('Cleaning up'){
+			steps{
+				bat "docker rmi $registry:$BUILD_NUMBER" 
+			}
+		}
+		
 
 	}
 
