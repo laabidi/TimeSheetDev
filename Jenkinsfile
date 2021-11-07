@@ -14,7 +14,7 @@ stages{
        steps{
              echo 'Pulling...';
              git branch: 'SaoussenBranch',
-            url : 'https://github.com/laabidi/TimeSheetDev';
+            url : 'https://github.com/laabidi/TimeSheetDev.git';
              }
          }
          
