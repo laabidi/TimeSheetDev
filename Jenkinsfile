@@ -1,9 +1,5 @@
 pipeline {
-environment {
 
-    PATH = "C:\Windows\System32"
-
-}
 agent any
 stages{
        stage('Checkout GIT'){
