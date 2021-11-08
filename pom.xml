@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>tn.esprit.spring</groupId>
 	<artifactId>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>1.0</version>
+	<packaging>jar</packaging>
 	<name>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</name>
 	<description>Timesheet-spring-boot-core-data-jpa-mvc-REST-1</description>
 
@@ -21,6 +21,7 @@
 	</properties>
 
 	<dependencies>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -60,6 +61,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Jacoco plugin -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+         		<artifactId>jacoco-maven-plugin</artifactId>
+         		<version>0.8.3</version>
+         		<executions>
+            		<execution>
+               			<id>jacoco-initialize</id>
+               			<goals>
+                  			<goal>prepare-agent</goal>
+               			</goals>
+               			<phase>test-compile</phase>
+            		</execution>
+            		<execution>
+               			<id>jacoco-site</id>
+              			 <phase>verify</phase>
+               			<goals>
+                  			<goal>report</goal>
+               			</goals>
+            		</execution>
+         		</executions>
+      		</plugin>
 		</plugins>
 	</build>
 

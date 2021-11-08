@@ -50,6 +50,7 @@ IEmployeRepository erep;
 	  @Test
 		public void testdeleteEmploye(){
 		  es.deleteEmployeById(1);	
+		  
 		}
 	  
 			
@@ -60,6 +61,7 @@ IEmployeRepository erep;
 			e.setNomEmploye("Ala eddine "+" +");
 			Employe ea= es.updateEmploye(e);
 			Assert.assertEquals(e.getNomEmploye(), ea.getNomEmploye());
+			L.log(Level.INFO, () ->"modifier employe : " +e);
 			}
 	
 
