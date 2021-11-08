@@ -20,7 +20,7 @@ stages{
          
          stage("Test,Build"){
           steps{
-          bat """mvn clean package -Dmaven.test.failure.ignore=true"""
+          sh """mvn clean package -Dmaven.test.failure.ignore=true"""
           }
           }
           
