@@ -1,7 +1,6 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jdk-alpine
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \JAVA_OPTS=""
-WORKDIR /app
-ADD target/*.jar timesheet_devops.jar
-EXPOSE 8086
-ENTRYPOINT ["java", "-jar", "/app/timesheet_devops.jar"]
+EXPOSE 8083
+ADD target/*.jar /
+ENTRYPOINT ["java","-jar","/Timesheet-spring-boot-core-data-jpa-mvc-REST-1-1.0-SNAPSHOT.jar"]
 
