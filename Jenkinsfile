@@ -1,5 +1,10 @@
 pipeline {
-
+environment
+{
+registry = "aladindr/alaimage"
+registryCredential= 'dockerHub'
+dockerImage = ''
+}
 agent any
 stages{
        stage('Checkout GIT'){
@@ -27,6 +32,14 @@ stages{
           bat """mvn deploy -DaltDeploymentRepository=deploymentRepo::default::file:/"""
           }
           }
+	stage('Building our image') {
+	steps { script { dockerImage= docker.build registry + ":$BUILD_NUMBER" } }
+	}
+	stage('Deploy our image') {
+	steps { script { docker.withRegistry( '', registryCredential) { dockerImage.push() } } }
+	}
+	steps { bat "docker rmi $registry:$BUILD_NUMBER" }
+	}
 
         }
     post{
