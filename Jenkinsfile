@@ -39,7 +39,7 @@ stages{
 	steps { script { docker.withRegistry( '', registryCredential) { dockerImage.push() } } }
 	}
 	steps { bat "docker rmi $registry:$BUILD_NUMBER" }
-	}
+
 
         }
     post{
