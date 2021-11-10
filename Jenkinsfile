@@ -3,7 +3,7 @@ pipeline {
 	registry = 'laabidi91/laabidi91'
 	registryCredential= 'dockerHub'
 	dockerImage = ''
-  EMAIL_TO = 'mohamed.laabidi@esprit.tn'
+ 
  }
  agent any
  stages{
@@ -61,21 +61,12 @@ pipeline {
   }
 }
 
- post {
-        failure {
-            emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
-                    to: "${EMAIL_TO}", 
-                    subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
-        }
-        unstable {
-            emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
-                    to: "${EMAIL_TO}", 
-                    subject: 'Unstable build in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
-        }
-        changed {
-            emailext body: 'Check console output at $BUILD_URL to view the results.', 
-                    to: "${EMAIL_TO}", 
-                    subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
-        }
-    }
+ post{
+		success{
+			emailext body: 'Build success', subject: 'Jenkins', to:'alaeddine.driss@esprit.tn'
+		}
+		failure{
+			emailext body: 'Build failure', subject: 'Jenkins', to:'alaeddine.driss@esprit.tn'
+		}
+}
 }
