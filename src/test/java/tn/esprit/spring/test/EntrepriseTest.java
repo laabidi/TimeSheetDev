@@ -51,7 +51,7 @@ public class EntrepriseTest {
 		  entrepriseService.deleteEntrepriseById(1);	
 		}
 	  
-		//test//	
+		
 		
 	  @Test
 	  public void testUpdateEmploye() {
