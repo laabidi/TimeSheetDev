@@ -68,7 +68,7 @@ stages{
         }
       post {
     always {
-       mail to: '@gmail.com',
+       mail to: 'cyrineabed2016@gmail.com',
           subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
           body: "${env.BUILD_URL} has result ${currentBuild.result}"
     }
