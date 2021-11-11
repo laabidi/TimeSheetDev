@@ -3,7 +3,6 @@ pipeline {
 	registry = 'aladindr/alaimage'
 	registryCredential= 'dockerHub'
 	dockerImage = ''
-  EMAIL_TO = 'alaeddine.driss@esprit.tn'
  }
  agent any
  stages{
