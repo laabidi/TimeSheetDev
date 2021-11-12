@@ -32,7 +32,7 @@ stages{
           
           stage("Nexus"){
           steps{
-          bat """mvn clean package -Dmaven.test.failure.ignore=true deploy -DaltDeploymentRepository=deploymentRepo::default::file:/"""
+          bat """mvn clean package -Dmaven.test.failure.ignore=true deploy:deploy-file -DgroupId=tn.esprit.spring -DartifactId=Timesheet-spring-boot-core-data-jpa-mvc-REST-1 -Dversion=0.0.1-SNAPSHOT -DgeneratePom=true -Dpackaging=war -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-snapshots/ -Dfile=target/Timesheet-spring-boot-core-data-jpa-mvc-REST-1-0.0.1-SNAPSHOT.war"""
           }
           }
      
