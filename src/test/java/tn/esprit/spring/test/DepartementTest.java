@@ -53,6 +53,7 @@ public class DepartementTest {
 			d.setName("khalil"+" ");
 			Departement dm= depService.updateDepartement(d);
 			Assert.assertEquals(d.getName(), dm.getName());
+			L.log(Level.INFO, () ->"Modifier departement : " +d);
 	  	
 	  }
 	  
