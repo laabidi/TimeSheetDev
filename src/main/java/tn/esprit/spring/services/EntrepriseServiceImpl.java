@@ -35,7 +35,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService{
 	@Override
 	public List<Entreprise> retrieveAllEntreprises() {
 		List<Entreprise> entreprises=(List<Entreprise>) erep.findAll();
-			l.log(Level.INFO, () ->"entreprise : " +entreprises);
+			l.log(Level.INFO, () ->"retrieve all entreprise : " +entreprises);
 		return entreprises;
 	}
 
@@ -56,7 +56,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService{
 	@Override
 	public Optional<Entreprise> retrieveEntreprise(String id) {
 Optional<Entreprise> entreprise = erep.findById(Long.parseLong(id));
- l.log(Level.INFO, () ->"entreprise : " +entreprise);
+ l.log(Level.INFO, () ->"retrieve entreprise : " +entreprise);
 	
 return entreprise;
 	}
